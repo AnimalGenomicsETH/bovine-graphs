@@ -1,0 +1,17 @@
+# config for variant calling
+
+workdir: /workdir #all path will be relative to the directory set here
+
+
+# directory of bam files
+# noted that the bam named as $anim.bam
+bamdir: /path/to/bamdir
+
+# from which graph the variants called
+graph: "graphord"
+
+# reference
+# ref: wgs/reference/graph6pan.fa
+
+# known variant database for BQSR
+knowvar: /path/to/known_variant

@@ -1,0 +1,45 @@
+* {
+    font-family : Arial;
+}
+
+h1{
+    padding: 10px;
+    padding-bottom: 50px;
+    text-align: center;
+    width: 50%
+
+}
+
+input {
+    width : 50%;
+}
+
+input[type=text] {
+    margin: 8px 0;
+    padding: 12px 20px;
+}
+
+input[type=text]:focus {
+    background-color: lightblue;
+}
+
+input[type=submit]{
+    width: 50%;
+    background-color: green;
+    box-align: center;
+    color: white;
+    border: none;
+    margin-top: 50px;
+    margin-left: 100px;
+    padding: 14px 20px;
+
+}
+
+#table-area{
+    align-items: center;
+    width: 50%;
+    border-radius: 10px;
+    background-color: #f2f2f2;
+    padding: 50px;
+    margin-bottom: 20px;
+}

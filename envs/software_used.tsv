@@ -1,0 +1,47 @@
+# base programming language
+python=3.7.1
+R=3.5.1 
+
+#python packages
+# can be installed with pip install --user
+snakemake=5.30.1 
+pybedtools=0.8.1
+pysam=0.16.0.1
+pandas=1.1.3
+flask=1.1.2
+graphviz=0.14.2
+PyPDF2=1.26.0
+markdown=3.0.1
+weasyprint=51
+
+# R libraries
+# can be installed with install.packages() function in R
+tidyverse=1.2.1
+magrittr=1.5
+ape=5.4.1
+edgeR=3.24.3
+optparse=1.6.2
+
+# Bioinformatic softwares
+# manual install
+minigraph=0.12-r389 
+gfatools=0.4-r179-dirty
+
+# available in bioconda 
+gatk4=4.1.9.0
+samtools=1.10
+bedtools=2.29.0
+seqkit=0.15.0
+graphaligner=1.0.12 
+mash=2.2
+RepeatMasker=4.1.1
+diamond=0.9.30.131
+hisat2=2.1.0
+augustus=3.3.3
+stringtie=2.1.1
+graphviz
+vt=0.5
+bcftools=1.8
+bwa=0.7.17-r1188
+samblaster=0.1.24
+fastp=0.19.4 

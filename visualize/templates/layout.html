@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pangenome viz</title>
+    <link rel="stylesheet" href={{ url_for("static", filename="visualize.css")}}>
+</head>
+
+<body>
+    <h1>Graph visualizer</h1>
+    <div id="table-area">
+        <form action={{ url_for('viz') }} method="post">
+            <label for="start_node">Start node:</label>
+            <input type="text" name="start_node" id="start_node"><br>
+            <label for="start_node">Stop node:</label>
+            <input type="text" name="stop_node" id="stop_node"><br>
+            <input type="submit" value="Visualize!">
+        </form>
+    </div>
+
+    {% block content %}{% endblock %}
+
+</body>
+
+</html>
