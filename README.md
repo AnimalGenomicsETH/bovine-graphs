@@ -1,3 +1,6 @@
+[![Snakemake](https://img.shields.io/badge/snakemake-≥5.26.1-brightgreen.svg?style=flat)](https://snakemake.readthedocs.io)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 # Pangenome Graph Pipeline
 
 Pipeline to integrate multiple genome assemblies into a pangenome graph representation.
@@ -15,11 +18,13 @@ See [Here](pipeline_scheme.pdf) for the scheme of the pipeline and [Here](report
 
 Developed for analysis of bovine genomes, but should be applicable to the other species as well.      
 
+## Citation
 Please cite below when using the pipeline/scripts in your research
 
 
-> Danang Crysnanto, Alexander S. Leonard, Zih-Hua Fang, Hubert Pausch. **Novel functional sequences uncovered through a bovine multi-assembly graph**. *Biorxiv*
+> Danang Crysnanto, Alexander S. Leonard, Zih-Hua Fang, Hubert Pausch. **Novel functional sequences uncovered through a bovine multi-assembly graph**. *[Biorxiv](https://www.biorxiv.org/content/10.1101/2021.01.08.425845v1.full)*
 
+## Pipeline usage
 
 **Input**
 ---
