@@ -15,4 +15,4 @@ jobs:
         uses: snakemake/snakemake-github-action@v1.11.0
         with:
           directory: '.test'
-          args: '--snakefile snake_graphs.py --dryrun'
+          args: '--snakefile snake_graph.py --dryrun'
