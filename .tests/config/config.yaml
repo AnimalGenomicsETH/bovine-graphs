@@ -1,0 +1,23 @@
+workdir: final_graph
+
+# Setting for SV analysis
+# gff always relative to the workdir
+
+gffinput: input.gff
+
+# Setting for rna-seq analysis
+rna_seq: False
+reference: {ref}
+# diamond protein db for blast 
+refprot: diamondprotdb
+rna_basedir: /ref/to/fastq_rna
+
+# setting for wgs analysis
+dna_seq: False
+dna_basedir: file.bam
+dna_ref: 
+ - ref1
+ - ref2
+dna_anims:
+ - anim1
+ - anim2
