@@ -1,5 +1,6 @@
 [![Snakemake](https://img.shields.io/badge/snakemake-≥5.26.1-brightgreen.svg?style=flat)](https://snakemake.readthedocs.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![snakemaker](https://github.com/ASLeonard/bovine-graphs/workflows/snakemaker/badge.svg)
 
 # Pangenome Graph Pipeline
 
