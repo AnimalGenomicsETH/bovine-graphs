@@ -1,0 +1,3 @@
+[submodule "snakemake_lsf"]
+	path = snakemake_lsf
+	url = https://github.com/AnimalGenomicsETH/snakemake_lsf
