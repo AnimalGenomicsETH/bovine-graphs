@@ -44,6 +44,7 @@ class node():
     nodelen: int = 0
     nodecol: str = ""
 
+
 @dataclass
 class bubbles():
     """
@@ -52,20 +53,20 @@ class bubbles():
     """
 
     # List length for each path
-    pathlen : List[int] = field(default_factory = list)
+    pathlen: List[int] = field(default_factory=list)
     # List of rank List in path
-    allrank : List[List] = field(default_factory = list)
+    allrank: List[List] = field(default_factory=list)
     # bool whether path is ref path or not
-    refpath : List[bool] = field(default_factory = list)
+    refpath: List[bool] = field(default_factory=list)
     # ref path length
-    lenref : int = 0
+    lenref: int = 0
     # List of rank List of colour in each path
-    colour : List[List] = field(default_factory = list)
+    colour: List[List] = field(default_factory=list)
     # List of SV types
-    svtype : List[str] = field(default_factory = list)
+    svtype: List[str] = field(default_factory=list)
 
 
-def get_sv(pathlen,allrank,refpath,lenref,colour):
+def get_sv(pathlen, allrank, refpath, lenref, colour):
     if refpath:
         return "ref"
     else:
@@ -82,13 +83,14 @@ def get_sv(pathlen,allrank,refpath,lenref,colour):
                     if lenref == 0:
                         return "Insertions"
                     else:
-                        #Altins when sv contains ref sequence
+                        # Altins when sv contains ref sequence
                         return "AltIns"
                 else:
                     return "AltDel"
 
         else:
             return "not_path"
+
 
 if __name__ == "__main__":
     args = parse_args()
@@ -105,12 +107,12 @@ if __name__ == "__main__":
             nodeinf[nodeid] = node(rrank=int(rrank), nodelen=int(nodelen))
 
     with open(f"analysis/colour_node/{assemb}_nodecol.tsv") as infile:
-        #skip header
+        # skip header
         next(infile)
         for line in infile:
             nodeid, nodecol = line.strip().split()
             nodeinf[nodeid].nodecol = nodecol
-    
+
     # parse edges in the graph
     graph = defaultdict(list)
     with open(f"graph/{assemb}_graph.gfa") as infile:
@@ -118,7 +120,7 @@ if __name__ == "__main__":
             if line.startswith("L"):
                 parent, strand1, child, strand2 = line.strip().split()[1:5]
                 if strand1 == "+" and strand2 == "+":
-                    graph[parent].append(child) 
+                    graph[parent].append(child)
                 else:
                     graph[child].append(parent)
 
@@ -144,40 +146,39 @@ if __name__ == "__main__":
                 for ind, comp in enumerate(path):
                     # determine the path length
                     # pathlen exclude source and sink
-                    if ind > 0 and ind < len(path)-1:
+                    if ind > 0 and ind < len(path) - 1:
                         totlen = totlen + nodeinf[comp].nodelen
                     # determine which colour consistent across nodes
-                    colour_list.append(set(nodeinf[comp].nodecol))
+                    colour_list.append(set(nodeinf[comp].nodecol.split(",")))
                     # store the rrank list
                     rank_list.append(nodeinf[comp].rrank)
                 bubble.colour.append(set.intersection(*colour_list))
                 bubble.pathlen.append(totlen)
                 bubble.allrank.append(rank_list)
                 # determine which is the ref path and its length
-                if all(x == 0 for x in rank_list) and len(path) == (sink_node-source_node+1):
+                if all(x == 0 for x in rank_list) and len(path) == (sink_node - source_node + 1):
                     bubble.refpath.append(True)
                     bubble.lenref = totlen
                 else:
                     bubble.refpath.append(False)
-            
 
-            #Determine sv type 
+            # Determine sv type
             for ind, path in enumerate(paths):
                 bubble.svtype.append(
-                        get_sv(pathlen = bubble.pathlen[ind],
-                               allrank = bubble.allrank[ind],
-                               refpath = bubble.refpath[ind],
-                               lenref = bubble.lenref,
-                               colour = bubble.colour[ind])
-                        )
+                    get_sv(pathlen=bubble.pathlen[ind],
+                           allrank=bubble.allrank[ind],
+                           refpath=bubble.refpath[ind],
+                           lenref=bubble.lenref,
+                           colour=bubble.colour[ind])
+                )
 
             for i in range(len(paths)):
                 # not considering not_path as sv
                 if bubble.svtype[i] != "not_path" and bubble.svtype[i] != "ref":
                     outvar = (
-                            f"{chromo}_{pos}\t{bubble.lenref}\t"
-                            f"{bubble.pathlen[i]}\t{bubble.svtype[i]}\t"
-                            f"{','.join(paths[i])}"
-                            )
+                        f"{chromo}_{pos}\t{bubble.lenref}\t"
+                        f"{bubble.pathlen[i]}\t{bubble.svtype[i]}\t"
+                        f"{','.join(paths[i])}"
+                    )
 
                     print(outvar)

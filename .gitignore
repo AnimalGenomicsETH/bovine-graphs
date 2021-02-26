@@ -1,2 +1,5 @@
 .snakemake/
 __pycache__/
+test/*
+!test/assembly/
+

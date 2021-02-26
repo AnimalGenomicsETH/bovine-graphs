@@ -2,11 +2,11 @@
 
 import pandas as pd
 import sys
+import os
 configfile: "config/config.yaml"
 workdir: config["workdir"]
 
-
-datstat = pd.read_csv("config/graph_comp.tsv",
+datstat = pd.read_csv(srcdir("config/graph_comp.tsv"),
                       sep=" ",
                       header=None,
                       names=["assemb", "ascomp"])

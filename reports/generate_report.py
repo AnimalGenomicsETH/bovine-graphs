@@ -116,7 +116,11 @@ def main():
                     f"*Generated on {time.strftime('%a %H:%M %d %B %Y' )}*\n\n"
                     "[TOC]\n"
                     "### *Computational resources*\n")
-    resources_string = resources_stat(assembly)
+    # only output resources with cluster execution
+    if "LSB_JOBID" in os.environ:
+        resources_string = resources_stat(assembly)
+    else:
+        resources_string = "Local execution\n"
     graph_string = graph_stat.graph_stat_report(assembly, component)
     core_string = core_genome_stat(assembly)
     nonref_string = nonref_stat(assembly)
