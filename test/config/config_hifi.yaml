@@ -1,0 +1,17 @@
+## config for hifi_validation
+# relative to the pipe output
+workdir: graph_trial
+
+# base of hifi reads directory
+# note that the hifi reads should be named $anim.fasta.gz
+hifi_base: validation/hifi_reads
+
+## how many reads aligned per file
+split_size: 500000
+
+## list of graph to consider
+graph_list: 
+        - graphord
+        - taurus
+        - indicus
+
