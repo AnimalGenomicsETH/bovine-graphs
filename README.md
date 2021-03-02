@@ -17,6 +17,7 @@ Analyses which are common in pangenome studies are also performed, including:
 - Variants (SNP and Indels) called from non-reference sequences     
 
 See [Here](pipeline_scheme.pdf) for the scheme of the pipeline and [Here](reports/taurus_report.pdf) for an example of the generated report. 
+Detailed description of the command run is available [Here](pipeline_description.md).
 
 Developed for analysis of bovine genomes, but should be applicable to the other species as well.      
 
@@ -50,7 +51,7 @@ Construction of multiple graphs can be specified in the different line e.g.,
 graph1 UCD,OBV,Angus 
 graph2 UCD,Angus 
 ```
-- Cluster job specification in the pipeline designed for `LSF /bsub` system. We provide `snakemake profile` to run on LSF system, modified from [Here](https://github.com/Snakemake-Profiles/lsf) by Alex. One needs to adapt for the other computing clusters. Please follow guidelines [Here](https://github.com/snakemake-profiles). Pipeline can also be run locally without cluster executions. 
+- Cluster job specification in the pipeline designed for `LSF /bsub` system. We provide `snakemake profile` to run on LSF system, modified from [Here](https://github.com/Snakemake-Profiles/lsf). One needs to adapt for the other computing clusters. Please follow guidelines [Here](https://github.com/snakemake-profiles). Pipeline can also be run locally without cluster executions. 
 
 
 **Usage**    
