@@ -30,3 +30,5 @@ dependencies:
   - samblaster
   - fastp
   - bioconductor-edger    
+  - python-graphviz
+  - weasyprint 
