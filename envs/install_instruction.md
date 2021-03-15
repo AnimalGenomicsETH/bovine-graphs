@@ -6,7 +6,7 @@ Tested on Linux 64-bit
 
 ```
 
-git clone https://github.com/danangcrysnanto/bovine-graphs.git
+git clone https://github.com/AnimalGenomicsETH/bovine-graphs.git
 curl "https://zenodo.org/record/4393273/files/software.tar.gz?download=1" --output graph_software.gz 
 tar -xzvf graph_software.gz 
 
