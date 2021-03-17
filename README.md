@@ -17,6 +17,7 @@ Analyses which are common in pangenome studies are also performed, including:
 - Variants (SNP and Indels) called from non-reference sequences     
 
 See [Here](pipeline_scheme.pdf) for the scheme of the pipeline and [Here](reports/taurus_report.pdf) for an example of the generated report. 
+Detailed description of the command run is available [Here](pipeline_description.md).
 
 Developed for analysis of bovine genomes, but should be applicable to the other species as well.      
 
@@ -31,9 +32,12 @@ Please cite below when using the pipeline/scripts in your research
 **Input**
 ---
 
-- [Minigraphs](https://github.com/lh3/minigraph) and [Gfatools](https://github.com/lh3/gfatools) need to be installed and available in `$PATH`. Please download [Here](https://doi.org/10.5281/zenodo.4393273) to get the same version used in the paper. 
-Required python packages, R libraries, and bioinformatic softwares are listed [Here](envs/software_used.tsv). Alternatively, one could use `mamba / conda`
-to create an environment with all softwares installed (Minigraph not included). To generate `pdf` report one need to install [weasyprint](https://weasyprint.org/start/).
+- Follow [installation instruction](envs/install_instruction.md) to install the pipeline. 
+
+[Minigraph](https://github.com/lh3/minigraph) and [Gfatools](https://github.com/lh3/gfatools) need to be installed and available in `$PATH`. Please download [Here](https://doi.org/10.5281/zenodo.4393273) to get the same version used in the paper. 
+Required python packages, R libraries, and bioinformatic softwares are listed [Here](envs/software_used.tsv). 
+Alternatively, one could use `mamba / conda` to create an environment with all softwares installed (Minigraph not included). 
+To generate `pdf` report one need to install [weasyprint](https://weasyprint.org/start/).
 
 ```
 conda env create -f envs/environment.yml
@@ -50,11 +54,19 @@ Construction of multiple graphs can be specified in the different line e.g.,
 graph1 UCD,OBV,Angus 
 graph2 UCD,Angus 
 ```
-- Cluster job specification in the pipeline designed for `LSF /bsub` system. We provide `snakemake profile` to run on LSF system, modified from [Here](https://github.com/Snakemake-Profiles/lsf) by Alex. One needs to adapt for the other computing clusters. Please follow guidelines [Here](https://github.com/snakemake-profiles). Pipeline can also be run locally without cluster executions. 
+- Cluster job specification in the pipeline designed for `LSF /bsub` system. We provide `snakemake profile` to run on LSF system, modified from [Here](https://github.com/Snakemake-Profiles/lsf). One needs to adapt for the other computing clusters. Please follow guidelines [Here](https://github.com/snakemake-profiles). Pipeline can also be run locally without cluster executions. 
 
 
 **Usage**    
 ---
+
+Small dataset from three bovine assemblies (10 Mb each) located in `test/assembly` folder are available for testing. Once all requirements are [fullfiled](envs/install_instruction.md), test can be done with command as below. This will be run test of pangenome construction and SV discovery with the local execution in a single core mode (< 5 mins). When `test` success it will generate a pdf report in `test/report` folder as in [Here](reports/test_report.pdf) 
+
+```
+snakemake -rp -j 1 -s snake_graph.py 
+```
+
+Command below can be invoked for running on real dataset:
 
 ```
 # local execution

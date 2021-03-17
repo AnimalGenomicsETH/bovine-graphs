@@ -1,13 +1,13 @@
-workdir: final_graph
+workdir: test
 
 # Setting for SV analysis
 # gff always relative to the workdir
 
-gffinput: /path/to/gff
+gffinput: assembly/bos_annot.gff.gz
 
 # Setting for rna-seq analysis
 rna_seq: False
-reference: {ref}
+reference: UCDsm
 # diamond protein db for blast 
 refprot: /ref/to/diamondprotdb
 rna_basedir: /ref/to/fastq_rna
@@ -25,3 +25,4 @@ dna_anims:
  - anim3
  - anim4
  - anim5
+

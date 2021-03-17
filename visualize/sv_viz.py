@@ -28,7 +28,10 @@ def main():
     lines = infile.readlines()
 
     merger = PdfFileMerger(strict=False)
-    selsamp = sample(range(0, len(lines)), 500)
+    if len(lines) > 501:
+        selsamp = sample(range(0, len(lines)), 500)
+    else:
+        selsamp = range(0, len(lines))
 
     for ind, line in enumerate(lines):
         if ind in selsamp:
