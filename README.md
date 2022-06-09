@@ -22,10 +22,10 @@ Detailed description of the command run is available [Here](pipeline_description
 Developed for analysis of bovine genomes, but should be applicable to the other species as well.      
 
 ## Citation
-Please cite below when using the pipeline/scripts in your research
+Please cite [our paper below](https://www.pnas.org/doi/10.1073/pnas.2101056118) when using the pipeline/scripts in your research
 
 
-> Danang Crysnanto, Alexander S. Leonard, Zih-Hua Fang, Hubert Pausch. **Novel functional sequences uncovered through a bovine multi-assembly graph**. *[Biorxiv](https://www.biorxiv.org/content/10.1101/2021.01.08.425845v1.full)*
+> Danang Crysnanto, Alexander S. Leonard, Zih-Hua Fang, Hubert Pausch. **Novel functional sequences uncovered through a bovine multi-assembly graph**. PNAS https://doi.org/10.1073/pnas.2101056118
 
 ## Pipeline usage
 
